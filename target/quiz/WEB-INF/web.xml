@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+  <display-name>Quiz</display-name>
+  
+  <servlet>
+    <servlet-name>quizController</servlet-name>
+    <servlet-class>com.sbt.controller.QuizController</servlet-class>
+    <init-param>
+      <param-name>appCtxClass</param-name>
+      <param-value>com.sbt.injection.servlet.context.SaxApplicationContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>appCtxPath</param-name>
+      <param-value>/applicationContext.xml</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>quizController</servlet-name>
+    <url-pattern>/quiz.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>quizAllController</servlet-name>
+    <servlet-class>com.sbt.controller.QuizAllController</servlet-class>
+    <init-param>
+      <param-name>appCtxClass</param-name>
+      <param-value>com.sbt.injection.servlet.context.SaxApplicationContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>appCtxPath</param-name>
+      <param-value>/applicationContext.xml</param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>quizAllController</servlet-name>
+    <url-pattern>/quizAll.do</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>loginFilter</filter-name>
+    <filter-class>com.sbt.filter.LoginFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>loginFilter</filter-name>
+    <url-pattern>/login.do</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>logoutFilter</filter-name>
+    <filter-class>com.sbt.filter.LogoutFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>logoutFilter</filter-name>
+    <url-pattern>/logout.do</url-pattern>
+  </filter-mapping>
+</web-app>

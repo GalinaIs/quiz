@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<context>
+    <bean name="quizDao" class="com.sbt.dao.QuizDaoMock" />
+    <bean name="txManager" class="com.sbt.transactionManager.TransactionManagerMock" />
+</context>
